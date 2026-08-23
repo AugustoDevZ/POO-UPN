@@ -19,7 +19,7 @@ public class Usuario {
         this.email = email;
 
     }
-    
+
     public int getId(){
         return this.id;
     }

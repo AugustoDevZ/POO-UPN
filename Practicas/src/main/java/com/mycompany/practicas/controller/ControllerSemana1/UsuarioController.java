@@ -12,9 +12,9 @@ import java.util.ArrayList;
  * @author AUGUSTO RODRIGUEZ
  */
 public class UsuarioController {
-      
+
     private static ArrayList<Usuario> Usuarios = new ArrayList<Usuario>();
-    
+
     public static void AddUser(int id, String nombre, String email){
 
         var prEncontrado = BuscarID(id);
@@ -53,5 +53,5 @@ public class UsuarioController {
 
 
 
-    
+
 } 

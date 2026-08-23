@@ -7,13 +7,14 @@ package com.mycompany.practicas.model.ModelsSemana1;
 /**
  * @author AUGUSTO RODRIGUEZ
  */
+
 public class Producto {
     int id;
     String nombre;
     Double precio;
     int stock;
     
-    public Producto (int id, String nombre, Double precio, int stock) {
+    public Producto(int id, String nombre, Double precio, int stock) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
@@ -45,4 +46,5 @@ public class Producto {
     public void setstock(int newStock){
         this.id = newStock;
     }
+
 }

@@ -4,8 +4,10 @@
  */
 package com.mycompany.practicas.start;
 
+import com.mycompany.practicas.controller.ControllerSemana1.LibroController;
 import com.mycompany.practicas.controller.ControllerSemana1.ProductoController;
 import com.mycompany.practicas.controller.ControllerSemana1.UsuarioController;
+import com.mycompany.practicas.model.ModelsSemana1.Libro;
 import com.mycompany.practicas.model.ModelsSemana1.Producto;
 import com.mycompany.practicas.model.ModelsSemana1.Usuario;
 
@@ -57,5 +59,28 @@ public class IndexSemana1 {
             );
         }
 
+    }
+
+    // Ejercicio 3:
+    public static void EjercicioTres(){
+        LibroController controlador = new LibroController();
+
+        Libro libro1 = new Libro("111", "El Principito", "Antoine de Saint-Exupéry", true);
+        Libro libro2 = new Libro("222", "Don Quijote", "Miguel de Cervantes", true);
+
+        controlador.agregarLibro(libro1);
+        controlador.agregarLibro(libro2);
+
+        controlador.listarLibros();
+
+        controlador.prestarLibro("111");
+
+        controlador.listarLibros();
+
+        controlador.prestarLibro("111");
+
+        controlador.devolverLibro("111");
+
+        controlador.listarLibros();
     }
 }

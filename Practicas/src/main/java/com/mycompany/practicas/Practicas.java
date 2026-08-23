@@ -12,5 +12,14 @@ public class Practicas {
         System.out.println("------------------------------------------------");
         IndexSemana1.EjercicioUno();
         IndexSemana1.EjercicioDos();
+        IndexSemana1.EjercicioTres();
+
+        IndexSemana2.Ejercicio4();
+        IndexSemana2.Ejercicio5();
+        IndexSemana2.Ejercicio6();
+        IndexSemana2.Ejercicio7();
+        IndexSemana2.Ejercicio8();
+        IndexSemana2.Ejercicio9();
+        IndexSemana2.Ejercicio10();
     }  
 }
