@@ -1,0 +1,61 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.practicas.start;
+
+import com.mycompany.practicas.controller.ControllerSemana1.ProductoController;
+import com.mycompany.practicas.controller.ControllerSemana1.UsuarioController;
+import com.mycompany.practicas.model.ModelsSemana1.Producto;
+import com.mycompany.practicas.model.ModelsSemana1.Usuario;
+
+import java.util.ArrayList;
+
+/**
+ *
+ * @author luisl
+ */
+public class IndexSemana1 {
+    //Ejercicio 1: Clase y Controlador de Producto
+    public static void EjercicioUno(){
+        System.out.println("==== Agregando productos...");
+        ProductoController.AddProducto(1, "Mesas", 600.0,12);
+        ProductoController.AddProducto(2, "Silla", 80.0,144);
+
+        System.out.println("==== Mostrando productos...");
+        ArrayList<Producto> _productos = ProductoController.ListarProductos();
+        for (Producto p : _productos){
+            System.out.println(
+                    "ID: " +
+                    p.getId() +
+                    " Nombre: " +
+                    p.getNombre() +
+                    " Precio: " +
+                    p.getPrecio() +
+                    " Stock: " +
+                    p.getStock()
+            );
+        }
+
+    }
+    
+    // Ejercicio 2: Clase Usuario y Controlador
+    public static void EjercicioDos(){
+        System.out.println("==== Agregando usuarios...");
+        UsuarioController.AddUser(1, "Pablo", "hello@gmail.com");
+
+        System.out.println("==== Mostrando productos...");
+        ArrayList<Usuario> _Usuarios = UsuarioController.ListarUsuarios();
+        for (Usuario p : _Usuarios){
+            System.out.println(
+                    "ID: " +
+                            p.getId() +
+                            " Nombre: " +
+                            p.getNombre() +
+                            " Email: " +
+                            p.getEmail()
+            );
+        }
+
+    }
+}

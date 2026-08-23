@@ -2,22 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.practicas.model;
+package com.mycompany.practicas.model.ModelsSemana1;
 
 /**
  * @author AUGUSTO RODRIGUEZ
  */
-public class Producto {
+public class Usuario {
     int id;
     String nombre;
-    Double precio;
-    int stock;
-    
-    public Producto (int id, String nombre, Double precio, int stock) {
+    String email;
+
+
+    public Usuario(int id, String nombre, String email) {
         this.id = id;
         this.nombre = nombre;
-        this.precio = precio;
-        this.stock = stock;
+        this.email = email;
+
     }
     
     public int getId(){
@@ -26,11 +26,8 @@ public class Producto {
     public String getNombre(){
         return this.nombre;
     }
-    public Double getPrecio(){
-        return this.precio;
-    }
-    public int getStock(){
-        return this.stock;
+    public String getEmail(){
+        return this.email;
     }
 
     public void setId(int newId){
@@ -39,10 +36,7 @@ public class Producto {
     public void setNombre(int newNombre){
         this.id = newNombre;
     }
-    public void setPrecio(int newPrecio){
-        this.id = newPrecio;
-    }
-    public void setstock(int newStock){
-        this.id = newStock;
+    public void setEmail(int newEmail){
+        this.id = newEmail;
     }
 }

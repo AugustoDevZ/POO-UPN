@@ -2,8 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.practicas.controller;
-import com.mycompany.practicas.model.Producto;
+package com.mycompany.practicas.controller.ControllerSemana1;
+import com.mycompany.practicas.model.ModelsSemana1.Producto;
 import java.util.ArrayList;
 
 /**
