@@ -1,4 +1,4 @@
-package com.mycompany.practicas.model.ModelsSemana1;
+package com.mycompany.practicas.semana1.model;
 
 public class Libro {
     private String isbn;

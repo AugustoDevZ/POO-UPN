@@ -1,4 +1,4 @@
-package com.mycompany.practicas.Semana2;
+package com.mycompany.practicas.semana2.controller;
 
 public class Movil {
     private double velocidadInicial;

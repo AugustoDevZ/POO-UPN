@@ -1,6 +1,7 @@
 
 package com.mycompany.practicas;
-import com.mycompany.practicas.start.*;
+import com.mycompany.practicas.semana1.IndexSemana1;
+import com.mycompany.practicas.semana2.IndexSemana2;
 
 /**
  * @author AUGUSTO RODRIGUEZ

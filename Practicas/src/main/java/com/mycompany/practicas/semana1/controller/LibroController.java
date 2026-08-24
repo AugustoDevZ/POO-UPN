@@ -1,6 +1,6 @@
-package com.mycompany.practicas.controller.ControllerSemana1;
+package com.mycompany.practicas.semana1.controller;
 
-import com.mycompany.practicas.model.ModelsSemana1.Libro;
+import com.mycompany.practicas.semana1.model.Libro;
 
 import java.util.ArrayList;
 
