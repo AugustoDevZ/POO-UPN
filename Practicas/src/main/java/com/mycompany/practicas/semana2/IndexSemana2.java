@@ -4,7 +4,7 @@
  */
 package com.mycompany.practicas.semana2;
 
-import com.mycompany.practicas.semana2.controller.*;
+import com.mycompany.practicas.semana2.model.*;
 
 /**
  *

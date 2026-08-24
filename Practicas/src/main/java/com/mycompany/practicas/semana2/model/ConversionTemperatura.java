@@ -1,4 +1,4 @@
-package com.mycompany.practicas.semana2.controller;
+package com.mycompany.practicas.semana2.model;
 
 public class ConversionTemperatura {
     private double gradosCentigrados;
