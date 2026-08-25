@@ -11,6 +11,27 @@ import com.mycompany.practicas.semana2.model.*;
  * @author luisl
  */
 public class IndexSemana2 {
+    public static void Ejercicio1(){
+        System.out.println("=== EJERCICIO 1: Triángulo ===");
+        // Triángulo con base de 5 y altura de 10
+        Triangulo triangulo = new Triangulo(5.0, 10.0);
+        System.out.println("Área del triángulo: " + triangulo.calcularArea());
+        System.out.println();
+    }
+    public static void Ejercicio2(){
+        System.out.println("=== EJERCICIO 2: Número ===");
+        // Probamos con el número 4
+        Numero numero = new Numero(4.0);
+        System.out.println("El cuadrado de 4 es: " + numero.calcularCuadrado());
+        System.out.println("El cubo de 4 es: " + numero.calcularCubo());
+        System.out.println();
+    }
+    public static void Ejercicio3(){
+        System.out.println("=== EJERCICIO 3: Cilindro ===");
+        // Cilindro con radio de 3 y altura de 7
+        Cilindro cilindro = new Cilindro(3.0, 7.0);
+        System.out.println("Volumen del cilindro: " + cilindro.calcularVolumen());
+    }
     public static void Ejercicio4(){
         System.out.println("=== EJERCICIO 4: Triángulo Rectángulo ===");
         TrianguloRectangulo triangulo = new TrianguloRectangulo(3.0, 4.0);

@@ -1,26 +1,18 @@
 
-package com.mycompany.practicas;
-import com.mycompany.practicas.semana1.IndexSemana1;
-import com.mycompany.practicas.semana2.IndexSemana2;
+package com.mycompany.practicas.semana1;
 
 /**
  * @author AUGUSTO RODRIGUEZ
  */
-public class Practicas {
+public class PracticasSemana1 {
     public static void main(String[] args) {
         System.out.println("------------------------------------------------");
         System.out.println("|           POO AND BASES DE DATOS-UPN          |");
+        System.out.println("------------        SEMANA 1          -----------");
         System.out.println("------------------------------------------------");
         IndexSemana1.EjercicioUno();
         IndexSemana1.EjercicioDos();
         IndexSemana1.EjercicioTres();
 
-        IndexSemana2.Ejercicio4();
-        IndexSemana2.Ejercicio5();
-        IndexSemana2.Ejercicio6();
-        IndexSemana2.Ejercicio7();
-        IndexSemana2.Ejercicio8();
-        IndexSemana2.Ejercicio9();
-        IndexSemana2.Ejercicio10();
     }  
 }
