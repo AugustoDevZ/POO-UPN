@@ -1,4 +1,4 @@
-package com.mycompany.practicas.semana2;
+package com.mycompany.practicas;
 
 
 public class PracticasSemana2 {

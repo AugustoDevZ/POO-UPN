@@ -1,4 +1,4 @@
-package com.mycompany.practicas.semana2.model;
+package com.mycompany.practicas.Semana3;
 
 public class Trabajador {
     private String nombre;
