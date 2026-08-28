@@ -1,5 +1,6 @@
 package com.mycompany.practicas.semana3;
 
+
 import java.io.IOException;
 
 public class Archivo {
