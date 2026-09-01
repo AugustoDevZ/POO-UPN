@@ -20,7 +20,6 @@ public class SeguridadController {
     private List<Delincuente> delincuentes = new ArrayList<>();
     private List<Atraco> atracos = new ArrayList<>();
 
-    // Registros
     public boolean registrarBanco(String codigo, String domicilio) {
         Banco nuevoBanco = new Banco(codigo, domicilio);
         return bancos.add(nuevoBanco);
@@ -50,13 +49,12 @@ public class SeguridadController {
         return atracos.add(new Atraco(codDelincuente, codSucursal, fecha));
     }
 
-    // Getters para cargar los datos en los JComboBox o JTables del JFrame
+    
     public List<Banco> getBancos() { return bancos; }
     public List<Sucursal> getSucursales() { return sucursales; }
     public List<Vigilante> getVigilantes() { return vigilantes; }
     public List<Delincuente> getDelincuentes() { return delincuentes; }
 
-    // Método de Negocio: Generar reporte general
     public String generarReportePolicial() {
         StringBuilder sb = new StringBuilder("=== REPORTE DE SEGURIDAD POLICIAL ===\n\n");
         sb.append("Total Bancos: ").append(bancos.size()).append("\n");

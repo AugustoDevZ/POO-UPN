@@ -35,12 +35,6 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txtCodigoBanco = new javax.swing.JTextField();
-        txtDomicilioBanco = new javax.swing.JTextField();
-        btnRegistrarBanco = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -72,57 +66,14 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
         cbxCondicionArma = new javax.swing.JComboBox<>();
         txtFechaContrato = new javax.swing.JTextField();
         btnContratarVigilante = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtCodigoBanco = new javax.swing.JTextField();
+        txtDomicilioBanco = new javax.swing.JTextField();
+        btnRegistrarBanco = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("Codigo de banco:");
-
-        jLabel2.setText("Domicilio:");
-
-        txtDomicilioBanco.addActionListener(this::txtDomicilioBancoActionPerformed);
-
-        btnRegistrarBanco.setText("Registrar banco");
-        btnRegistrarBanco.addActionListener(this::btnRegistrarBancoActionPerformed);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(btnRegistrarBanco))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(44, 44, 44)
-                                .addComponent(txtCodigoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(82, 82, 82)
-                                .addComponent(txtDomicilioBanco)))))
-                .addGap(25, 427, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtCodigoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(txtDomicilioBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(118, 118, 118)
-                .addComponent(btnRegistrarBanco)
-                .addContainerGap(132, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Gestion de bancos", jPanel1);
 
         jLabel3.setText("Código Sucursal:");
 
@@ -340,6 +291,55 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Vigilantes y Contratos", jPanel4);
 
+        jLabel1.setText("Codigo de banco:");
+
+        jLabel2.setText("Domicilio:");
+
+        txtDomicilioBanco.addActionListener(this::txtDomicilioBancoActionPerformed);
+
+        btnRegistrarBanco.setText("Registrar banco");
+        btnRegistrarBanco.addActionListener(this::btnRegistrarBancoActionPerformed);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(btnRegistrarBanco))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)
+                                .addComponent(txtCodigoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(82, 82, 82)
+                                .addComponent(txtDomicilioBanco)))))
+                .addGap(25, 427, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtCodigoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(txtDomicilioBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(118, 118, 118)
+                .addComponent(btnRegistrarBanco)
+                .addContainerGap(132, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Gestion de bancos", jPanel1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -366,19 +366,17 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
     String codigo = txtCodigoBanco.getText();
     String domicilio = txtDomicilioBanco.getText();
 
-    // Validamos que no manden campos en blanco
     if (codigo.trim().isEmpty() || domicilio.trim().isEmpty()) {
         JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos del banco.");
         return; 
     }
 
-    // Le mandamos los datos al controlador para que él haga el registro en su lista
     controller.registrarBanco(codigo, domicilio);
     JOptionPane.showMessageDialog(this, "Banco registrado con éxito.");
     
     cbxBancos.addItem(codigo);
 
-    // Limpiamos las cajitas de texto para el siguiente registro
+
     txtCodigoBanco.setText("");
     txtDomicilioBanco.setText("");
     }//GEN-LAST:event_btnRegistrarBancoActionPerformed
@@ -393,7 +391,7 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
         String domicilio = txtDomicilioSucursal.getText();
         String empleadosStr = txtEmpleadosSucursal.getText();
         
-        // Obtenemos el banco seleccionado en el ComboBox
+        
         Object bancoSeleccionado = cbxBancos.getSelectedItem();
 
         if (codigo.trim().isEmpty() || domicilio.trim().isEmpty() || empleadosStr.trim().isEmpty() || bancoSeleccionado == null) {
@@ -402,13 +400,13 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
         }
 
         try {
-            int empleados = Integer.parseInt(empleadosStr); // Convertimos el texto a número
-            String codigoBanco = bancoSeleccionado.toString(); // Sacamos el código del banco
+            int empleados = Integer.parseInt(empleadosStr); 
+            String codigoBanco = bancoSeleccionado.toString();
             
             controller.registrarSucursal(codigo, domicilio, empleados, codigoBanco);
             JOptionPane.showMessageDialog(this, "Sucursal registrada con éxito.");
             cbxSucursalesContrato.addItem(codigo);
-            // Limpiamos los campos
+      
             txtCodigoSucursal.setText("");
             txtDomicilioSucursal.setText("");
             txtEmpleadosSucursal.setText("");
@@ -422,10 +420,10 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
 
     private void btnGenerarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarReporteActionPerformed
         // TODO add your handling code here:
-        // Llamamos al método brillante que hiciste en tu controlador
+        
         String reporte = controller.generarReportePolicial();
         
-        // Lo imprimimos en la pantalla
+        
         txtAreaReporte.setText(reporte);
     }//GEN-LAST:event_btnGenerarReporteActionPerformed
 
@@ -443,7 +441,7 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
              int edad = Integer.parseInt(edadStr);
              controller.registrarVigilante(codigo, edad);
              
-             // Agregar el vigilante creado al desplegable de contratos
+             
              cbxVigilantes.addItem(codigo);
              
              JOptionPane.showMessageDialog(this, "Vigilante registrado con éxito.");
