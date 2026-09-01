@@ -9,16 +9,6 @@ package com.mycompany.practicas.Semana4.Olimpiada.domain.enums;
  * @author AUGUSTO RODRIGUEZ
  */
 public enum Ubicacion {
-    AREA_1("Zona este"),
-    AREA_2("Zona sur");
-    
-    private String ubicacion;
-    
-    Ubicacion(String ubicacion){
-        this.ubicacion = ubicacion;
-    }
-    
-    public String getubicacion() {
-        return ubicacion;
-    }
+    AREA_1,
+    AREA_2;
 }

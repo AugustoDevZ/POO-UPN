@@ -4,6 +4,6 @@ com\mycompany\practicas\Semana4\Olimpiada\domain\models\Sede.class
 com\mycompany\practicas\Semana4\Olimpiada\domain\models\Evento.class
 com\mycompany\practicas\Semana4\Olimpiada\domain\enums\ComisarioRol.class
 com\mycompany\practicas\Semana4\Olimpiada\domain\models\Area.class
-Olimpiada\infrastructure\controller\OlimpiadaController.class
 com\mycompany\practicas\Semana4\Olimpiada\infrastructure\ui\Olimpiada.class
 com\mycompany\practicas\Semana4\Olimpiada\domain\enums\Ubicacion.class
+com\mycompany\practicas\Semana4\Olimpiada\infrastructure\controller\SedeController.class
