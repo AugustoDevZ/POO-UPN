@@ -161,10 +161,12 @@
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Component id="label3" min="-2" pref="20" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtNombreSede" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="cbxListComplejosSede" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnAddSede" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtNombreSede" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnAddSede" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -387,9 +389,9 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="label10" min="-2" pref="20" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jComboBox4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton5" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="19" max="32767" attributes="0"/>
                           </Group>
@@ -802,7 +804,6 @@
             <Component class="javax.swing.JButton" name="jButton10">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Crear Comisario"/>
-                <Property name="actionCommand" type="java.lang.String" value="Crear Comisario"/>
               </Properties>
             </Component>
             <Component class="java.awt.Label" name="label19">
@@ -859,10 +860,12 @@
                               <Component id="jCalendar2" alignment="1" min="-2" pref="210" max="-2" attributes="0"/>
                               <Component id="jCalendar1" alignment="0" min="-2" pref="217" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="label21" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="label23" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="label22" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="label21" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label23" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label22" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -910,9 +913,9 @@
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Component id="label25" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jComboBox10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton12" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton12" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="list4" pref="0" max="32767" attributes="0"/>
