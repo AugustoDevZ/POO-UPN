@@ -11,5 +11,34 @@ import java.util.List;
 public class Sede {
     private String idSede;    
     private double presupuesto;
-    private int numComplejos;
+    private List<Complejo> complejos;
+    private String nombre;
+
+    public Sede(String idSede, double presupuesto, List<Complejo> numComplejos) {
+        this.idSede = idSede;
+        this.presupuesto = presupuesto;
+        this.complejos = numComplejos;
+    }
+
+    public String getIdSede() {
+        return idSede;
+    }
+
+    public double getPresupuesto() {
+        return presupuesto;
+    }
+
+    public int getNumComplejos() {
+        return complejos.size();
+    }
+
+    public List<Complejo> getComplejos() {
+        return complejos;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+    
+ 
 }
