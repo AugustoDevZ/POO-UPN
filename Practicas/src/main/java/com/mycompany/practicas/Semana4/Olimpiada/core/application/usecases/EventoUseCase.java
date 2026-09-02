@@ -6,6 +6,7 @@ package com.mycompany.practicas.Semana4.Olimpiada.core.application.usecases;
 import java.util.ArrayList;
 import java.util.List;
 import com.mycompany.practicas.Semana4.Olimpiada.core.domain.models.*;
+import com.mycompany.practicas.Semana4.Olimpiada.core.application.Dto.GetAllDto;
 /**
  *
  * @author AUGUSTO RODRIGUEZ
@@ -23,17 +24,20 @@ public class EventoUseCase {
         comisarios.removeIf(comisario -> comisario.getUUID().equals(uuid));      
     }
     
-    public static List<Comisario> getComisarios(){
-        return comisarios;
+    public static GetAllDto getComisarios(){    
+        return new GetAllDto(comisarios);
     }
-    public static List<Evento> getEventos(){
-        return eventos;
+    public static GetAllDto getEventos(){
+        return new GetAllDto(eventos);
     }
-    public static List<Area> getAreas(){
-        return areas;
+    public static GetAllDto getAreas(){
+        return new GetAllDto(areas);
     }
-    public static List<Complejo> getComplejos(){
-        return complejos;
+    public static GetAllDto getComplejos(){
+        return new GetAllDto(complejos);
+    }
+    public static GetAllDto getSedes(){
+        return new GetAllDto(sedes);
     }
     
     
@@ -67,7 +71,5 @@ public class EventoUseCase {
         }
         sedes.add(nuevaSede);
     }
-    
-    
     
 }

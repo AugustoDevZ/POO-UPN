@@ -51,9 +51,9 @@ public class Olimpiada extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        list1 = new java.awt.List();
-        jButton1 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        lstVista = new java.awt.List();
+        btnVisualizar = new javax.swing.JButton();
+        cbxMostrar = new javax.swing.JComboBox<>();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         label1 = new java.awt.Label();
@@ -118,9 +118,10 @@ public class Olimpiada extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Recargar Lista");
+        btnVisualizar.setText("Recargar Lista");
+        btnVisualizar.addActionListener(this::btnVisualizarActionPerformed);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxMostrar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mostrar Sedes", "Mostrar Areas", "Mostrar Comisarios", "Mostrar Eventos", "Mostarr Complejos" }));
 
         jTabbedPane1.addChangeListener(this::jTabbedPane1StateChanged);
 
@@ -578,10 +579,12 @@ public class Olimpiada extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(20, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(list1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, 0, 283, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(cbxMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lstVista, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
@@ -592,12 +595,12 @@ public class Olimpiada extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(list1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lstVista, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbxMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -841,7 +844,7 @@ public class Olimpiada extends javax.swing.JFrame {
 
     private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
         
-        List<Evento> tempEventos = EventoController.getEventos();
+        List<Evento> tempEventos = EventoController.getEventos().getItems();
         
         cbxEventosComplejo.removeAllItems();
         
@@ -849,7 +852,7 @@ public class Olimpiada extends javax.swing.JFrame {
             cbxEventosComplejo.addItem(evn);
         }
         
-        List<Area> tempArea = EventoController.getAreas();
+        List<Area> tempArea = EventoController.getAreas().getItems();
         
         cbxAreasComplejo.removeAllItems();
         
@@ -857,7 +860,7 @@ public class Olimpiada extends javax.swing.JFrame {
             cbxAreasComplejo.addItem(ar);
         }
         
-        List<Complejo> tempComplejos = EventoController.getComplejos();
+        List<Complejo> tempComplejos = EventoController.getComplejos().getItems();
         
         cbxListComplejosSede.removeAllItems();
         
@@ -897,10 +900,47 @@ public class Olimpiada extends javax.swing.JFrame {
         tempAreas.add(area);
         lstAreasSeleccionadasComplejo.add(area.toString());
     }//GEN-LAST:event_btnAreasComplejoActionPerformed
+
+    private void btnVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarActionPerformed
+        if (cbxMostrar.getSelectedIndex() == -1) {
+            JOptionPane.showMessageDialog(
+                null,
+                "Debes seleccionar una opción para poder visualizar",
+                "Error",
+                JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
+        
+        List<?> datosParaMostrar = null;
+        
+        switch(cbxMostrar.getSelectedIndex()){
+            case 1:
+                datosParaMostrar = EventoController.getSedes().getItems();
+                break;
+            case 2:
+                datosParaMostrar = EventoController.getAreas().getItems();
+                break;
+            case 3:
+                datosParaMostrar = EventoController.getComisarios().getItems();
+                break;
+            case 4:
+                datosParaMostrar = EventoController.getEventos().getItems();
+                break;
+            case 5:
+                datosParaMostrar = EventoController.getComplejos().getItems();
+                break;    
+        }
+     
+        lstVista.removeAll();
+        for (Object ar : datosParaMostrar) {
+            lstVista.add(ar + "");
+        }
+    }//GEN-LAST:event_btnVisualizarActionPerformed
     
     private void reloadCbxComisarios(){
         
-        List<Comisario> temComisarios = EventoController.getComisarios();
+        List<Comisario> temComisarios = EventoController.getComisarios().getItems();
         cbxComisarios.removeAllItems();
         for (Comisario comisario : temComisarios) {
             cbxComisarios.addItem(comisario);
@@ -952,6 +992,7 @@ public class Olimpiada extends javax.swing.JFrame {
     private javax.swing.JButton btnCrearEvento;
     private javax.swing.JButton btnCrearSede;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnVisualizar;
     private com.toedter.calendar.JCalendar caFinalEvento;
     private com.toedter.calendar.JCalendar caInicioEvento;
     private javax.swing.JComboBox<com.mycompany.practicas.Semana4.Olimpiada.core.domain.models.Area> cbxAreasComplejo;
@@ -959,9 +1000,8 @@ public class Olimpiada extends javax.swing.JFrame {
     private javax.swing.JComboBox<com.mycompany.practicas.Semana4.Olimpiada.core.domain.models.Comisario> cbxEventoComsiarios;
     private javax.swing.JComboBox<com.mycompany.practicas.Semana4.Olimpiada.core.domain.models.Evento> cbxEventosComplejo;
     private javax.swing.JComboBox<com.mycompany.practicas.Semana4.Olimpiada.core.domain.models.Complejo> cbxListComplejosSede;
+    private javax.swing.JComboBox<String> cbxMostrar;
     private javax.swing.JComboBox<com.mycompany.practicas.Semana4.Olimpiada.core.domain.enums.ComisarioRol> cbxRolComisario;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -991,11 +1031,11 @@ public class Olimpiada extends javax.swing.JFrame {
     private java.awt.Label label7;
     private java.awt.Label label8;
     private java.awt.Label label9;
-    private java.awt.List list1;
     private java.awt.List lstAreasSeleccionadasComplejo;
     private java.awt.List lstComisariosSeleccionados;
     private java.awt.List lstComplejosSede;
     private java.awt.List lstEventosComplejo;
+    private java.awt.List lstVista;
     private javax.swing.JTextField txtDescripcionArea;
     private javax.swing.JTextField txtJefeIndividual;
     private javax.swing.JTextField txtLocalizacionArea;

@@ -4,11 +4,9 @@
  */
 package com.mycompany.practicas.Semana4.Olimpiada.presentation.controller;
 import com.mycompany.practicas.Semana4.Olimpiada.core.application.usecases.EventoUseCase;
+import com.mycompany.practicas.Semana4.Olimpiada.core.application.Dto.GetAllDto;
 import com.mycompany.practicas.Semana4.Olimpiada.core.domain.models.Comisario;
-import com.mycompany.practicas.Semana4.Olimpiada.core.application.port.IdGenerator;
-import com.mycompany.practicas.Semana4.Olimpiada.core.application.usecases.IdGeneradorUseCase;
 import com.mycompany.practicas.Semana4.Olimpiada.core.domain.models.*;
-import java.time.LocalDateTime;
 import java.util.List;
 /**
  *
@@ -21,17 +19,20 @@ public class EventoController {
     }
     
     
-    public static List<Comisario> getComisarios(){
+    public static GetAllDto getComisarios(){
         return EventoUseCase.getComisarios();
     }
-    public static List<Evento> getEventos(){
+    public static GetAllDto getEventos(){
         return EventoUseCase.getEventos();
     }    
-    public static List<Area> getAreas(){
+    public static GetAllDto getAreas(){
         return EventoUseCase.getAreas();
     }
-    public static List<Complejo> getComplejos(){
+    public static GetAllDto getComplejos(){
         return  EventoUseCase.getComplejos();
+    }
+    public static GetAllDto getSedes(){
+        return  EventoUseCase.getSedes();
     }
     
     
