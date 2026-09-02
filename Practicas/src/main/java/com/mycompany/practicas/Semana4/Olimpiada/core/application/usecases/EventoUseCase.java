@@ -15,65 +15,59 @@ public class EventoUseCase {
     private static List<Evento> eventos = new ArrayList();
     private static List<Area> areas = new ArrayList();
     private static List<Complejo> complejos = new ArrayList();
+    private static List<Sede> sedes = new ArrayList();
+     
     
-    public static void addComisario(Comisario newComisario){
-        if (comisarios.contains(newComisario)) {
-            return;
-        }
-        comisarios.add(newComisario);
-    }
     
     public static void removeComisario(String uuid){
         comisarios.removeIf(comisario -> comisario.getUUID().equals(uuid));      
     }
     
-    public static boolean existComisario(String uuid){
-        return comisarios.stream().anyMatch(comisario -> comisario.getUUID().equals(uuid));
-    }
-    
-    
-    
     public static List<Comisario> getComisarios(){
         return comisarios;
     }
-    
-    
-    public static void addEvento(Evento evento){
-
-       if (!eventos.contains(evento)) {
-           return;
-       }
-
-       eventos.add(evento);
-    }
-    
-    public static List<Evento> getEvento(){
+    public static List<Evento> getEventos(){
         return eventos;
     }
-    public static List<Area> getArea(){
+    public static List<Area> getAreas(){
         return areas;
     }
-    
-    public static boolean existComplejo(Complejo newComplejo){
-        if (!complejos.contains(newComplejo)) {
-           return true;
-        }
-        return false;
-    }
-    
-    public static void addComplejo(Complejo newComplejo){      
-       complejos.add(newComplejo);
-    }
-    
     public static List<Complejo> getComplejos(){
         return complejos;
     }
     
-    public static boolean existArea(Area area){
-        return areas.contains(area);
+    
+    public static void addComisario(Comisario nuevoComisario){
+        if (comisarios.contains(nuevoComisario)) {
+            return;
+        }
+        comisarios.add(nuevoComisario);
+    }
+    public static void addEvento(Evento nuevoEvento){
+        if (eventos.contains(nuevoEvento)) {
+            return;
+        }
+        eventos.add(nuevoEvento);
+    }
+    public static void addComplejo(Complejo nuevoComplejo){      
+        if (complejos.contains(nuevoComplejo)) {
+            return;
+        }
+       complejos.add(nuevoComplejo);
+    }    
+    public static void addArea(Area nuevaArea){
+        if (areas.contains(nuevaArea)) {
+            return;
+        }
+        areas.add(nuevaArea);
+    }
+    public static void addSede(Sede nuevaSede){
+        if (sedes.contains(nuevaSede)) {
+            return;
+        }
+        sedes.add(nuevaSede);
     }
     
-    public static void addArea(Area area){
-        areas.add(area);
-    }
+    
+    
 }

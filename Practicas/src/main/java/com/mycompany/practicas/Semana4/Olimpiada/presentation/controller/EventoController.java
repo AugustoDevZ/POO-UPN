@@ -16,58 +16,39 @@ import java.util.List;
  */
 public class EventoController {
     
-    
-    public static void createComisario(String nombreComisario, String uuid){
-        
-        if (EventoUseCase.existComisario(uuid)) {
-            return;
-        }
-        
-        Comisario newComisario = new Comisario(uuid, nombreComisario);
-        EventoUseCase.addComisario(newComisario);
-    }
-    
-    public static List<Comisario> getComisarios(){
-        return EventoUseCase.getComisarios();
-    }
-    
-    public static void eliminarCOmisario(String uuid){
+    public static void eliminarComisario(String uuid){
         EventoUseCase.removeComisario(uuid);
     }
     
     
-    public static void createEvento(Evento newEvento){
-        
-        EventoUseCase.addEvento(newEvento);
+    public static List<Comisario> getComisarios(){
+        return EventoUseCase.getComisarios();
     }
-    
-    public static List<Evento> getEvento(){
-        return EventoUseCase.getEvento();
+    public static List<Evento> getEventos(){
+        return EventoUseCase.getEventos();
+    }    
+    public static List<Area> getAreas(){
+        return EventoUseCase.getAreas();
     }
-    
-    public static List<Area> getArea(){
-        return EventoUseCase.getArea();
-    }
-    
-    public static void createComplejo(Complejo newComplejo){     
-        
-         if (EventoUseCase.existComplejo(newComplejo)) {
-             return;
-         }
-         
-        EventoUseCase.addComplejo(newComplejo);
-    }
-    
     public static List<Complejo> getComplejos(){
         return  EventoUseCase.getComplejos();
     }
     
-     public static void createArea(Area newArea){     
-        
-         if (EventoUseCase.existArea(newArea)) {
-             return;
-         }
-         
-        EventoUseCase.addArea(newArea);
+    
+    
+    public static void crearComisario(Comisario nuevoComisario){
+        EventoUseCase.addComisario(nuevoComisario);
+    }
+    public static void crearEvento(Evento nuevoEvento){
+        EventoUseCase.addEvento(nuevoEvento);
+    }
+    public static void crearComplejo(Complejo nuevoComplejo){     
+        EventoUseCase.addComplejo(nuevoComplejo);
+    }
+    public static void crearArea(Area nuevoArea){     
+        EventoUseCase.addArea(nuevoArea);
+    }
+    public static void crearSede(Sede nuevaSede){
+        EventoUseCase.addSede(nuevaSede);
     }
 }

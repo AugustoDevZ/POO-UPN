@@ -14,10 +14,11 @@ public class Sede {
     private List<Complejo> complejos;
     private String nombre;
 
-    public Sede(String idSede, double presupuesto, List<Complejo> numComplejos) {
+    public Sede(String idSede, double presupuesto, List<Complejo> numComplejos, String nombre) {
         this.idSede = idSede;
         this.presupuesto = presupuesto;
         this.complejos = numComplejos;
+        this.nombre = nombre;
     }
 
     public String getIdSede() {

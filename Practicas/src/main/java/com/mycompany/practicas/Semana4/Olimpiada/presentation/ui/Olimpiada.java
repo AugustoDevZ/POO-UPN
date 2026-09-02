@@ -30,6 +30,7 @@ public class Olimpiada extends javax.swing.JFrame {
     private List<Participacion> tempComisarios = new ArrayList();
     private List<Evento> tempEventos = new ArrayList();
     private List<Area> tempAreas = new ArrayList();
+    private List<Complejo> tempComplejos = new ArrayList();
     /**
      * Creates new form Olimpiada
      */
@@ -616,7 +617,29 @@ public class Olimpiada extends javax.swing.JFrame {
             );
             return;
         }
+        double presupuesto = 0.0;
+        try {
+            presupuesto = Double.parseDouble(presupuestoSede);
+    
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(
+                null,
+                "El presupeusto ingresado no es válido",
+                "Error",
+                JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
         
+        String uuid = this.UUIDGenerador.generar();
+        
+        Sede nuevaSede = new Sede(uuid, presupuesto, tempComplejos, nombreSede);
+        
+        EventoController.crearSede(nuevaSede);
+        tempComplejos.clear();
+    }//GEN-LAST:event_btnCrearSedeActionPerformed
+
+    private void btnAddSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSedeActionPerformed
         if (cbxListComplejosSede.getSelectedIndex() == -1) {
             JOptionPane.showMessageDialog(
                 null,
@@ -625,20 +648,10 @@ public class Olimpiada extends javax.swing.JFrame {
                 JOptionPane.ERROR_MESSAGE
             );
             return;
-        }
+        }      
         
-        Complejo com = (Complejo) cbxListComplejosSede.getSelectedItem();
-        
-        
-        
-    }//GEN-LAST:event_btnCrearSedeActionPerformed
-
-    private void btnAddSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSedeActionPerformed
-        if (cbxListComplejosSede.getSelectedIndex() == -1) return;
-        
-        String sedeSeleccionada = cbxListComplejosSede.getSelectedItem().toString();
-        
-        
+        Complejo com = (Complejo) cbxListComplejosSede.getSelectedItem();        
+        tempComplejos.add(com);
         
     }//GEN-LAST:event_btnAddSedeActionPerformed
 
@@ -654,7 +667,10 @@ public class Olimpiada extends javax.swing.JFrame {
             return;
         }
         String uuid = this.UUIDGenerador.generar();
-        EventoController.createComisario(nombre, uuid);
+        
+        Comisario newComisario = new Comisario(uuid, nombre);
+        
+        EventoController.crearComisario(newComisario);
         reloadCbxComisarios();
         JOptionPane.showMessageDialog(
                 null,
@@ -678,7 +694,7 @@ public class Olimpiada extends javax.swing.JFrame {
             return;
         }
         String uuid = this.UUIDGenerador.generar();
-        EventoController.createArea(new Area(uuid, desArea,locArea));
+        EventoController.crearArea(new Area(uuid, desArea,locArea));
         
     }//GEN-LAST:event_btnCrearAreaActionPerformed
 
@@ -694,7 +710,7 @@ public class Olimpiada extends javax.swing.JFrame {
         }
         
         Comisario seleccionado = (Comisario) cbxComisarios.getSelectedItem();
-        EventoController.eliminarCOmisario(seleccionado.getUUID());
+        EventoController.eliminarComisario(seleccionado.getUUID());
         reloadCbxComisarios();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
@@ -816,7 +832,7 @@ public class Olimpiada extends javax.swing.JFrame {
         Complejo newComplejo = new Complejo(uuid, localizacionComplejo, jefeIndividual,
                 tempAreas, tempEventos);
         
-        EventoController.createComplejo(newComplejo);        
+        EventoController.crearComplejo(newComplejo);        
         tempAreas.clear();
         tempEventos.clear();
         lstAreasSeleccionadasComplejo.removeAll();
@@ -825,7 +841,7 @@ public class Olimpiada extends javax.swing.JFrame {
 
     private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
         
-        List<Evento> tempEventos = EventoController.getEvento();
+        List<Evento> tempEventos = EventoController.getEventos();
         
         cbxEventosComplejo.removeAllItems();
         
@@ -833,7 +849,7 @@ public class Olimpiada extends javax.swing.JFrame {
             cbxEventosComplejo.addItem(evn);
         }
         
-        List<Area> tempArea = EventoController.getArea();
+        List<Area> tempArea = EventoController.getAreas();
         
         cbxAreasComplejo.removeAllItems();
         
@@ -841,12 +857,12 @@ public class Olimpiada extends javax.swing.JFrame {
             cbxAreasComplejo.addItem(ar);
         }
         
-        List<Complejo> tempComplejo = EventoController.getComplejos();
+        List<Complejo> tempComplejos = EventoController.getComplejos();
         
-        cbxAreasComplejo.removeAllItems();
+        cbxListComplejosSede.removeAllItems();
         
-        for (Area ar : tempArea) {
-            cbxAreasComplejo.addItem(ar);
+        for (Complejo c : tempComplejos) {
+            cbxListComplejosSede.addItem(c);
         }
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
