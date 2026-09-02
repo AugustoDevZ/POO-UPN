@@ -23,4 +23,8 @@ public enum ComisarioRol {
         return rol;
     }
     
+    @Override
+    public String toString() {
+        return this.rol; 
+    }
 }

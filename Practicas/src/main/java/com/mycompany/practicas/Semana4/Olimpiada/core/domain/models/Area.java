@@ -17,6 +17,21 @@ public class Area {
         this.descripcion = descripcion;
         this.localizacion = localizacion;
     }
+
+    public String getIdArea() {
+        return idArea;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public String getLocalizacion() {
+        return localizacion;
+    }
     
-    
+    @Override
+    public String toString() {
+        return idArea + localizacion; 
+    }
 }

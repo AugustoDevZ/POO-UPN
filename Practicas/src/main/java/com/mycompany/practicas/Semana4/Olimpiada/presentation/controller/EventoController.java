@@ -7,6 +7,8 @@ import com.mycompany.practicas.Semana4.Olimpiada.core.application.usecases.Event
 import com.mycompany.practicas.Semana4.Olimpiada.core.domain.models.Comisario;
 import com.mycompany.practicas.Semana4.Olimpiada.core.application.port.IdGenerator;
 import com.mycompany.practicas.Semana4.Olimpiada.core.application.usecases.IdGeneradorUseCase;
+import com.mycompany.practicas.Semana4.Olimpiada.core.domain.models.*;
+import java.time.LocalDateTime;
 import java.util.List;
 /**
  *
@@ -31,5 +33,41 @@ public class EventoController {
     
     public static void eliminarCOmisario(String uuid){
         EventoUseCase.removeComisario(uuid);
+    }
+    
+    
+    public static void createEvento(Evento newEvento){
+        
+        EventoUseCase.addEvento(newEvento);
+    }
+    
+    public static List<Evento> getEvento(){
+        return EventoUseCase.getEvento();
+    }
+    
+    public static List<Area> getArea(){
+        return EventoUseCase.getArea();
+    }
+    
+    public static void createComplejo(Complejo newComplejo){     
+        
+         if (EventoUseCase.existComplejo(newComplejo)) {
+             return;
+         }
+         
+        EventoUseCase.addComplejo(newComplejo);
+    }
+    
+    public static List<Complejo> getComplejos(){
+        return  EventoUseCase.getComplejos();
+    }
+    
+     public static void createArea(Area newArea){     
+        
+         if (EventoUseCase.existArea(newArea)) {
+             return;
+         }
+         
+        EventoUseCase.addArea(newArea);
     }
 }

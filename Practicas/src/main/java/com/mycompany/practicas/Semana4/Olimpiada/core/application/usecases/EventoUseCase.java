@@ -5,10 +5,7 @@
 package com.mycompany.practicas.Semana4.Olimpiada.core.application.usecases;
 import java.util.ArrayList;
 import java.util.List;
-import com.mycompany.practicas.Semana4.Olimpiada.core.domain.models.Comisario;
-import com.mycompany.practicas.Semana4.Olimpiada.core.domain.models.Participacion;
-import com.mycompany.practicas.Semana4.Olimpiada.core.domain.models.Evento;
-import com.mycompany.practicas.Semana4.Olimpiada.core.domain.enums.ComisarioRol;
+import com.mycompany.practicas.Semana4.Olimpiada.core.domain.models.*;
 /**
  *
  * @author AUGUSTO RODRIGUEZ
@@ -16,6 +13,8 @@ import com.mycompany.practicas.Semana4.Olimpiada.core.domain.enums.ComisarioRol;
 public class EventoUseCase {
     private static List<Comisario> comisarios = new ArrayList();
     private static List<Evento> eventos = new ArrayList();
+    private static List<Area> areas = new ArrayList();
+    private static List<Complejo> complejos = new ArrayList();
     
     public static void addComisario(Comisario newComisario){
         if (comisarios.contains(newComisario)) {
@@ -39,25 +38,42 @@ public class EventoUseCase {
     }
     
     
-    
-    public static Participacion createParticipacion(Comisario comisario, ComisarioRol rol){
-        
-        if (!comisarios.contains(comisario)) {
-            return null;
-        }
-        
-        Participacion newParticipacion = new Participacion(comisario, rol);
-        
-        return newParticipacion;
+    public static void addEvento(Evento evento){
+
+       if (!eventos.contains(evento)) {
+           return;
+       }
+
+       eventos.add(evento);
     }
     
-     public static void addEvento(Evento evento){
-        
-        if (!eventos.contains(evento)) {
-            return;
-        }
-        
-        eventos.add(evento);
-     }
+    public static List<Evento> getEvento(){
+        return eventos;
+    }
+    public static List<Area> getArea(){
+        return areas;
+    }
     
+    public static boolean existComplejo(Complejo newComplejo){
+        if (!complejos.contains(newComplejo)) {
+           return true;
+        }
+        return false;
+    }
+    
+    public static void addComplejo(Complejo newComplejo){      
+       complejos.add(newComplejo);
+    }
+    
+    public static List<Complejo> getComplejos(){
+        return complejos;
+    }
+    
+    public static boolean existArea(Area area){
+        return areas.contains(area);
+    }
+    
+    public static void addArea(Area area){
+        areas.add(area);
+    }
 }
