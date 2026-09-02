@@ -24,13 +24,21 @@ public class EventoUseCase {
         comisarios.add(newComisario);
     }
     
-    public static void removeComisario(String id){
-        comisarios.removeIf(comisario -> comisario.getId().equals(id));      
+    public static void removeComisario(String uuid){
+        comisarios.removeIf(comisario -> comisario.getUUID().equals(uuid));      
     }
+    
+    public static boolean existComisario(String uuid){
+        return comisarios.stream().anyMatch(comisario -> comisario.getUUID().equals(uuid));
+    }
+    
+    
     
     public static List<Comisario> getComisarios(){
         return comisarios;
     }
+    
+    
     
     public static Participacion createParticipacion(Comisario comisario, ComisarioRol rol){
         

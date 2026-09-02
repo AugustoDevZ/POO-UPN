@@ -17,11 +17,19 @@ public class EventoController {
     
     public static void createComisario(String nombreComisario, String uuid){
         
+        if (EventoUseCase.existComisario(uuid)) {
+            return;
+        }
+        
         Comisario newComisario = new Comisario(uuid, nombreComisario);
         EventoUseCase.addComisario(newComisario);
     }
     
     public static List<Comisario> getComisarios(){
         return EventoUseCase.getComisarios();
+    }
+    
+    public static void eliminarCOmisario(String uuid){
+        EventoUseCase.removeComisario(uuid);
     }
 }

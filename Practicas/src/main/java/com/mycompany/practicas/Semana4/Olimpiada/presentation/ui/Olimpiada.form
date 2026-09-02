@@ -708,7 +708,7 @@
                                           <Component id="label20" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton11" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnEliminar" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
@@ -735,7 +735,7 @@
                       <Component id="label20" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButton11" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cbxComisarios" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="183" max="32767" attributes="0"/>
@@ -783,10 +783,13 @@
                 <Property name="text" type="java.lang.String" value="Selecciona el comisario a eliminar"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton11">
+            <Component class="javax.swing.JButton" name="btnEliminar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Eliminar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="cbxComisarios">
               <Properties>
@@ -795,7 +798,7 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;com.mycompany.practicas.Semana4.Olimpiada.core.domain.models.Comisario&gt;"/>
               </AuxValues>
             </Component>
           </SubComponents>
@@ -831,17 +834,17 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="label25" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField8" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="txtNumParticipantes" min="-2" pref="190" max="-2" attributes="0"/>
                           <Component id="label24" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                               <Component id="list4" alignment="0" min="-2" pref="218" max="-2" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jComboBox10" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="cbxEventoComsiarios" min="-2" pref="170" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButton12" min="-2" pref="42" max="-2" attributes="0"/>
+                                  <Component id="btnAddEventoComisarios" min="-2" pref="42" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="jButton13" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
+                          <Component id="btnCrearEvento" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
@@ -868,18 +871,18 @@
                               <EmptySpace pref="61" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jTextField8" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtNumParticipantes" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Component id="label25" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jComboBox10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton12" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbxEventoComsiarios" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAddEventoComisarios" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="list4" pref="0" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                              <Component id="jButton13" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnCrearEvento" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -915,9 +918,9 @@
                 <Property name="text" type="java.lang.String" value="Ingresa n&#xfa;meros de participantes"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField8">
+            <Component class="javax.swing.JTextField" name="txtNumParticipantes">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField8"/>
+                <Property name="text" type="java.lang.String" value="2"/>
               </Properties>
             </Component>
             <Component class="java.awt.Label" name="label25">
@@ -925,7 +928,7 @@
                 <Property name="text" type="java.lang.String" value="Selecciona los comisarios"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox10">
+            <Component class="javax.swing.JComboBox" name="cbxEventoComsiarios">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -937,20 +940,26 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;com.mycompany.practicas.Semana4.Olimpiada.core.domain.models.Comisario&gt;"/>
               </AuxValues>
             </Component>
             <Component class="java.awt.List" name="list4">
             </Component>
-            <Component class="javax.swing.JButton" name="jButton12">
+            <Component class="javax.swing.JButton" name="btnAddEventoComisarios">
               <Properties>
                 <Property name="text" type="java.lang.String" value="+"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddEventoComisariosActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton13">
+            <Component class="javax.swing.JButton" name="btnCrearEvento">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Crear Evento"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrearEventoActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
