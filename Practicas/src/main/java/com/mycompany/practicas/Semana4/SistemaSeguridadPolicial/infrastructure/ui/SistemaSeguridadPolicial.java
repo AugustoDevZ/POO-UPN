@@ -75,7 +75,9 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
         txtFechaContrato = new javax.swing.JTextField();
         btnContratarVigilante = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblVigilantes = new javax.swing.JTable();
+        btnEliminarVigilante = new javax.swing.JButton();
+        btnActualizarVigilante = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -256,7 +258,7 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
         btnContratarVigilante.setText("Asignar a Sucursal");
         btnContratarVigilante.addActionListener(this::btnContratarVigilanteActionPerformed);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblVigilantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -267,7 +269,13 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
                 "Codigo", "Edad"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(tblVigilantes);
+
+        btnEliminarVigilante.setText("Eliminar");
+        btnEliminarVigilante.addActionListener(this::btnEliminarVigilanteActionPerformed);
+
+        btnActualizarVigilante.setText("Actualizar");
+        btnActualizarVigilante.addActionListener(this::btnActualizarVigilanteActionPerformed);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -301,17 +309,25 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbxSucursalesContrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbxCondicionArma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbxVigilantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(140, 140, 140))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbxSucursalesContrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbxCondicionArma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbxVigilantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(140, 140, 140))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnEliminarVigilante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnActualizarVigilante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGap(65, 65, 65)
                 .addComponent(jLabel9)
@@ -332,19 +348,27 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
                     .addComponent(jLabel11))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(txtCodigoVigilante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbxSucursalesContrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12))
-                        .addGap(29, 29, 29)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
-                            .addComponent(cbxCondicionArma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel7)
+                                    .addComponent(txtCodigoVigilante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cbxSucursalesContrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel12))
+                                .addGap(29, 29, 29)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel14)
+                                    .addComponent(cbxCondicionArma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnActualizarVigilante)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnEliminarVigilante, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(40, 40, 40)))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -418,21 +442,21 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
         try {
             int edad = Integer.parseInt(edadStr);
             
-            // 1. Guardamos el resultado de la validación
+            
             boolean guardadoConExito = controller.registrarVigilante(codigo, edad);
 
-            // 2. Evaluamos si se guardó o si era duplicado
+           
             if (guardadoConExito) {
-                // --- SI SE GUARDÓ CON ÉXITO ---
+                
                 JOptionPane.showMessageDialog(this, "Vigilante registrado con éxito.");
                 
-                cbxVigilantes.addItem(codigo); // Tu línea intacta para actualizar el ComboBox
-                actualizarTablaVigilantes();   // Actualizamos la tabla
+                cbxVigilantes.addItem(codigo);
+                actualizarTablaVigilantes();   
                 
                 txtCodigoVigilante.setText("");
                 txtEdadVigilante.setText("");
             } else {
-                // --- SI ERA DUPLICADO ---
+                
                 JOptionPane.showMessageDialog(this, "Error: El código de vigilante YA EXISTE.", "Código Duplicado", JOptionPane.ERROR_MESSAGE);
             }
 
@@ -508,6 +532,83 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodigoSucursalActionPerformed
 
+    private void btnEliminarVigilanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarVigilanteActionPerformed
+        // TODO add your handling code here:
+        int filaSeleccionada = tblVigilantes.getSelectedRow();
+
+        
+        if (filaSeleccionada == -1) {
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione un vigilante de la tabla para eliminar.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+       
+        String codigo = tblVigilantes.getValueAt(filaSeleccionada, 0).toString();
+
+        
+        int confirmacion = JOptionPane.showConfirmDialog(this, "¿Está seguro de eliminar al vigilante " + codigo + "?", "Confirmar Eliminación", JOptionPane.YES_NO_OPTION);
+
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            
+           
+            boolean eliminado = controller.eliminarVigilante(codigo);
+            
+            if (eliminado) {
+               
+                cbxVigilantes.removeItem(codigo);
+                
+                
+                actualizarTablaVigilantes();
+                
+                JOptionPane.showMessageDialog(this, "Vigilante eliminado con éxito.");
+            } else {
+                JOptionPane.showMessageDialog(this, "Error al eliminar. No se encontró el vigilante.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_btnEliminarVigilanteActionPerformed
+
+    private void btnActualizarVigilanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarVigilanteActionPerformed
+        // TODO add your handling code here:
+        
+        int filaSeleccionada = tblVigilantes.getSelectedRow();
+
+        if (filaSeleccionada == -1) {
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione un vigilante de la tabla para actualizar.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        
+        String codigo = tblVigilantes.getValueAt(filaSeleccionada, 0).toString();
+        
+        
+        String nuevaEdadStr = txtEdadVigilante.getText();
+
+        if (nuevaEdadStr.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, escriba la nueva edad en el cuadro de texto.");
+            return;
+        }
+
+        try {
+            int nuevaEdad = Integer.parseInt(nuevaEdadStr);
+            
+           
+            boolean actualizado = controller.actualizarVigilante(codigo, nuevaEdad);
+            
+            if (actualizado) {
+                JOptionPane.showMessageDialog(this, "Vigilante actualizado con éxito.");
+                actualizarTablaVigilantes(); // Refrescamos la tabla para ver la nueva edad
+                
+                txtCodigoVigilante.setText("");
+                txtEdadVigilante.setText("");
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudo actualizar. Vigilante no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "La edad debe ser un número entero.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnActualizarVigilanteActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -531,16 +632,15 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
     }
     
     private void actualizarTablaVigilantes() {
-    // 1. Obtenemos el modelo de tu tabla
-    DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
     
-    // 2. Limpiamos la tabla para no duplicar datos cada vez que actualizamos
+    DefaultTableModel modelo = (DefaultTableModel) tblVigilantes.getModel();
+    
+    
     modelo.setRowCount(0);
     
-    // 3. Recorremos la lista de vigilantes que está en tu controlador
+    
     for (Vigilante v : controller.getVigilantes()) {
-        // 4. Agregamos una fila por cada vigilante
-        // Nota: Asegúrate de que tu clase Vigilante tenga los métodos getCodigo() y getEdad()
+        
         modelo.addRow(new Object[]{
             v.getCodigo(),
             v.getEdad()
@@ -549,7 +649,9 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizarVigilante;
     private javax.swing.JButton btnContratarVigilante;
+    private javax.swing.JButton btnEliminarVigilante;
     private javax.swing.JButton btnGenerarReporte;
     private javax.swing.JButton btnRegistrarBanco;
     private javax.swing.JButton btnRegistrarSucursal;
@@ -579,7 +681,7 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable tblVigilantes;
     private javax.swing.JTextArea txtAreaReporte;
     private javax.swing.JTextField txtCodigoBanco;
     private javax.swing.JTextField txtCodigoSucursal;

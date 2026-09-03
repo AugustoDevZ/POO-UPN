@@ -32,13 +32,35 @@ public class SeguridadController {
     public boolean registrarVigilante(String codigo, int edad) {
         for (Vigilante v : vigilantes) {
             if (v.getCodigo().equals(codigo)) {
-                // Si encontramos uno igual, retornamos false (significa que NO se pudo registrar)
+                
                 return false; 
             }
         }
         return vigilantes.add(new Vigilante(codigo, edad));
     }
-
+    
+    public boolean eliminarVigilante(String codigo) {
+        
+        for (int i = 0; i < vigilantes.size(); i++) {
+            if (vigilantes.get(i).getCodigo().equals(codigo)) {
+                vigilantes.remove(i); 
+                return true; 
+            }
+        }
+        return false; 
+    }
+    
+    public boolean actualizarVigilante(String codigo, int nuevaEdad) {
+        
+        for (Vigilante v : vigilantes) {
+            if (v.getCodigo().equals(codigo)) {
+                v.setEdad(nuevaEdad); 
+                return true; 
+            }
+        }
+        return false; 
+    }
+    
     public boolean contratarVigilante(String codVigilante, String codSucursal, String fecha, CondicionArma condicion) {
         return contratos.add(new ContratoVigilancia(codVigilante, codSucursal, fecha, condicion));
     }

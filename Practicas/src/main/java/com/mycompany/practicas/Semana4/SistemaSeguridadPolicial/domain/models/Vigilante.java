@@ -24,4 +24,8 @@ public class Vigilante {
     public String toString() {
         return "Vigilante " + codigo + " (" + edad + " años)";
     }
+    
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
 }
