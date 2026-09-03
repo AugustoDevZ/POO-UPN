@@ -30,6 +30,12 @@ public class SeguridadController {
     }
 
     public boolean registrarVigilante(String codigo, int edad) {
+        for (Vigilante v : vigilantes) {
+            if (v.getCodigo().equals(codigo)) {
+                // Si encontramos uno igual, retornamos false (significa que NO se pudo registrar)
+                return false; 
+            }
+        }
         return vigilantes.add(new Vigilante(codigo, edad));
     }
 
@@ -70,4 +76,6 @@ public class SeguridadController {
         }
         return sb.toString();
     }
+    
+    
 }

@@ -5,6 +5,8 @@
 package com.mycompany.practicas.Semana4.SistemaSeguridadPolicial.infrastructure.ui;
 import com.mycompany.practicas.Semana4.SistemaSeguridadPolicial.infrastructure.Controller.SeguridadController;
 import com.mycompany.practicas.Semana4.SistemaSeguridadPolicial.domain.enums.CondicionArma;
+import com.mycompany.practicas.Semana4.SistemaSeguridadPolicial.domain.models.Vigilante;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 /**
  *
@@ -49,6 +51,12 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaReporte = new javax.swing.JTextArea();
         btnGenerarReporte = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtCodigoBanco = new javax.swing.JTextField();
+        txtDomicilioBanco = new javax.swing.JTextField();
+        btnRegistrarBanco = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -66,12 +74,8 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
         cbxCondicionArma = new javax.swing.JComboBox<>();
         txtFechaContrato = new javax.swing.JTextField();
         btnContratarVigilante = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txtCodigoBanco = new javax.swing.JTextField();
-        txtDomicilioBanco = new javax.swing.JTextField();
-        btnRegistrarBanco = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,7 +117,7 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addComponent(btnRegistrarSucursal)))
-                .addContainerGap(458, Short.MAX_VALUE))
+                .addContainerGap(467, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,7 +140,7 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
                     .addComponent(cbxBancos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(btnRegistrarSucursal)
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(274, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Gestion de sucursales", jPanel2);
@@ -156,7 +160,7 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnGenerarReporte)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -170,126 +174,10 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(233, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Reportes", jPanel3);
-
-        jLabel7.setText("Código Vigilante:");
-
-        jLabel8.setText("Edad:");
-
-        btnRegistrarVigilante.setText("Registrar Vigilante");
-        btnRegistrarVigilante.addActionListener(this::btnRegistrarVigilanteActionPerformed);
-
-        jLabel9.setText("Seccion vigilantes");
-
-        jLabel10.setText("Seccion Contratos");
-
-        jLabel11.setText("Seleccionar Vigilante:");
-
-        jLabel12.setText("Seleccionar Sucursal:");
-
-        jLabel13.setText("Fecha (DD/MM/AAAA):");
-
-        jLabel14.setText("Condición:");
-
-        cbxVigilantes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cbxSucursalesContrato.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cbxCondicionArma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        btnContratarVigilante.setText("Asignar a Sucursal");
-        btnContratarVigilante.addActionListener(this::btnContratarVigilanteActionPerformed);
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCodigoVigilante, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtEdadVigilante, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(btnRegistrarVigilante)))
-                .addGap(91, 91, 91)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addGap(31, 31, 31)
-                        .addComponent(txtFechaContrato, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(btnContratarVigilante)))
-                .addContainerGap(85, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbxSucursalesContrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbxCondicionArma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbxVigilantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(140, 140, 140))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(122, 122, 122))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbxVigilantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
-                .addGap(1, 1, 1)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtCodigoVigilante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbxSucursalesContrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(cbxCondicionArma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtEdadVigilante, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel13)
-                        .addComponent(txtFechaContrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(24, 24, 24)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegistrarVigilante)
-                    .addComponent(btnContratarVigilante))
-                .addGap(78, 78, 78))
-        );
-
-        jTabbedPane1.addTab("Vigilantes y Contratos", jPanel4);
 
         jLabel1.setText("Codigo de banco:");
 
@@ -320,7 +208,7 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(82, 82, 82)
                                 .addComponent(txtDomicilioBanco)))))
-                .addGap(25, 427, Short.MAX_VALUE))
+                .addGap(25, 436, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -335,10 +223,147 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
                     .addComponent(txtDomicilioBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(118, 118, 118)
                 .addComponent(btnRegistrarBanco)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(276, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Gestion de bancos", jPanel1);
+
+        jLabel7.setText("Código Vigilante:");
+
+        jLabel8.setText("Edad:");
+
+        btnRegistrarVigilante.setText("Registrar Vigilante");
+        btnRegistrarVigilante.addActionListener(this::btnRegistrarVigilanteActionPerformed);
+
+        jLabel9.setText("Seccion vigilantes");
+
+        jLabel10.setText("Seccion Contratos");
+
+        jLabel11.setText("Seleccionar Vigilante:");
+
+        jLabel12.setText("Seleccionar Sucursal:");
+
+        jLabel13.setText("Fecha (DD/MM/AAAA):");
+
+        jLabel14.setText("Condición:");
+
+        cbxVigilantes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cbxSucursalesContrato.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cbxCondicionArma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        btnContratarVigilante.setText("Asignar a Sucursal");
+        btnContratarVigilante.addActionListener(this::btnContratarVigilanteActionPerformed);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Codigo", "Edad"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable2);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtCodigoVigilante, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEdadVigilante, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(btnRegistrarVigilante)))
+                .addGap(91, 91, 91)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addGap(31, 31, 31)
+                        .addComponent(txtFechaContrato, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(btnContratarVigilante)))
+                .addContainerGap(94, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbxSucursalesContrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxCondicionArma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxVigilantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(140, 140, 140))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(122, 122, 122))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbxVigilantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(txtCodigoVigilante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cbxSucursalesContrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12))
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(cbxCondicionArma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txtEdadVigilante, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel13)
+                                .addComponent(txtFechaContrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnRegistrarVigilante)
+                            .addComponent(btnContratarVigilante))
+                        .addGap(78, 78, 78))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+
+        jTabbedPane1.addTab("Vigilantes y Contratos", jPanel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -351,107 +376,13 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtDomicilioBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDomicilioBancoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDomicilioBancoActionPerformed
-
-    private void btnRegistrarBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarBancoActionPerformed
-        // TODO add your handling code here:
-    String codigo = txtCodigoBanco.getText();
-    String domicilio = txtDomicilioBanco.getText();
-
-    if (codigo.trim().isEmpty() || domicilio.trim().isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos del banco.");
-        return; 
-    }
-
-    controller.registrarBanco(codigo, domicilio);
-    JOptionPane.showMessageDialog(this, "Banco registrado con éxito.");
-    
-    cbxBancos.addItem(codigo);
-
-
-    txtCodigoBanco.setText("");
-    txtDomicilioBanco.setText("");
-    }//GEN-LAST:event_btnRegistrarBancoActionPerformed
-
-    private void txtCodigoSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoSucursalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoSucursalActionPerformed
-
-    private void btnRegistrarSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarSucursalActionPerformed
-        // TODO add your handling code here:
-        String codigo = txtCodigoSucursal.getText();
-        String domicilio = txtDomicilioSucursal.getText();
-        String empleadosStr = txtEmpleadosSucursal.getText();
-        
-        
-        Object bancoSeleccionado = cbxBancos.getSelectedItem();
-
-        if (codigo.trim().isEmpty() || domicilio.trim().isEmpty() || empleadosStr.trim().isEmpty() || bancoSeleccionado == null) {
-            JOptionPane.showMessageDialog(this, "Complete todos los campos y seleccione un banco.");
-            return;
-        }
-
-        try {
-            int empleados = Integer.parseInt(empleadosStr); 
-            String codigoBanco = bancoSeleccionado.toString();
-            
-            controller.registrarSucursal(codigo, domicilio, empleados, codigoBanco);
-            JOptionPane.showMessageDialog(this, "Sucursal registrada con éxito.");
-            cbxSucursalesContrato.addItem(codigo);
-      
-            txtCodigoSucursal.setText("");
-            txtDomicilioSucursal.setText("");
-            txtEmpleadosSucursal.setText("");
-            
-            
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "El número de empleados debe ser un valor numérico.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        
-    }//GEN-LAST:event_btnRegistrarSucursalActionPerformed
-
-    private void btnGenerarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarReporteActionPerformed
-        // TODO add your handling code here:
-        
-        String reporte = controller.generarReportePolicial();
-        
-        
-        txtAreaReporte.setText(reporte);
-    }//GEN-LAST:event_btnGenerarReporteActionPerformed
-
-    private void btnRegistrarVigilanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarVigilanteActionPerformed
-
-         String codigo = txtCodigoVigilante.getText();
-         String edadStr = txtEdadVigilante.getText();
-         
-         if (codigo.trim().isEmpty() || edadStr.trim().isEmpty()) {
-             JOptionPane.showMessageDialog(this, "Complete todos los campos del vigilante.");
-             return;
-         }
-         
-         try {
-             int edad = Integer.parseInt(edadStr);
-             controller.registrarVigilante(codigo, edad);
-             
-             
-             cbxVigilantes.addItem(codigo);
-             
-             JOptionPane.showMessageDialog(this, "Vigilante registrado con éxito.");
-             txtCodigoVigilante.setText("");
-             txtEdadVigilante.setText("");
-             
-         } catch (NumberFormatException e) {
-             JOptionPane.showMessageDialog(this, "La edad debe ser un número entero.", "Error", JOptionPane.ERROR_MESSAGE);
-         }
-    }//GEN-LAST:event_btnRegistrarVigilanteActionPerformed
 
     private void btnContratarVigilanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContratarVigilanteActionPerformed
         // TODO add your handling code here:
@@ -474,6 +405,109 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
         txtFechaContrato.setText("");
     }//GEN-LAST:event_btnContratarVigilanteActionPerformed
 
+    private void btnRegistrarVigilanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarVigilanteActionPerformed
+
+        String codigo = txtCodigoVigilante.getText();
+        String edadStr = txtEdadVigilante.getText();
+
+        if (codigo.trim().isEmpty() || edadStr.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Complete todos los campos del vigilante.");
+            return;
+        }
+
+        try {
+            int edad = Integer.parseInt(edadStr);
+            
+            // 1. Guardamos el resultado de la validación
+            boolean guardadoConExito = controller.registrarVigilante(codigo, edad);
+
+            // 2. Evaluamos si se guardó o si era duplicado
+            if (guardadoConExito) {
+                // --- SI SE GUARDÓ CON ÉXITO ---
+                JOptionPane.showMessageDialog(this, "Vigilante registrado con éxito.");
+                
+                cbxVigilantes.addItem(codigo); // Tu línea intacta para actualizar el ComboBox
+                actualizarTablaVigilantes();   // Actualizamos la tabla
+                
+                txtCodigoVigilante.setText("");
+                txtEdadVigilante.setText("");
+            } else {
+                // --- SI ERA DUPLICADO ---
+                JOptionPane.showMessageDialog(this, "Error: El código de vigilante YA EXISTE.", "Código Duplicado", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "La edad debe ser un número entero.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
+    }//GEN-LAST:event_btnRegistrarVigilanteActionPerformed
+
+    private void btnRegistrarBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarBancoActionPerformed
+        // TODO add your handling code here:
+        String codigo = txtCodigoBanco.getText();
+        String domicilio = txtDomicilioBanco.getText();
+
+        if (codigo.trim().isEmpty() || domicilio.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos del banco.");
+            return;
+        }
+
+        controller.registrarBanco(codigo, domicilio);
+        JOptionPane.showMessageDialog(this, "Banco registrado con éxito.");
+
+        cbxBancos.addItem(codigo);
+
+        txtCodigoBanco.setText("");
+        txtDomicilioBanco.setText("");
+    }//GEN-LAST:event_btnRegistrarBancoActionPerformed
+
+    private void txtDomicilioBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDomicilioBancoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDomicilioBancoActionPerformed
+
+    private void btnGenerarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarReporteActionPerformed
+        // TODO add your handling code here:
+
+        String reporte = controller.generarReportePolicial();
+
+        txtAreaReporte.setText(reporte);
+    }//GEN-LAST:event_btnGenerarReporteActionPerformed
+
+    private void btnRegistrarSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarSucursalActionPerformed
+        // TODO add your handling code here:
+        String codigo = txtCodigoSucursal.getText();
+        String domicilio = txtDomicilioSucursal.getText();
+        String empleadosStr = txtEmpleadosSucursal.getText();
+
+        Object bancoSeleccionado = cbxBancos.getSelectedItem();
+
+        if (codigo.trim().isEmpty() || domicilio.trim().isEmpty() || empleadosStr.trim().isEmpty() || bancoSeleccionado == null) {
+            JOptionPane.showMessageDialog(this, "Complete todos los campos y seleccione un banco.");
+            return;
+        }
+
+        try {
+            int empleados = Integer.parseInt(empleadosStr);
+            String codigoBanco = bancoSeleccionado.toString();
+
+            controller.registrarSucursal(codigo, domicilio, empleados, codigoBanco);
+            JOptionPane.showMessageDialog(this, "Sucursal registrada con éxito.");
+            cbxSucursalesContrato.addItem(codigo);
+
+            txtCodigoSucursal.setText("");
+            txtDomicilioSucursal.setText("");
+            txtEmpleadosSucursal.setText("");
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "El número de empleados debe ser un valor numérico.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnRegistrarSucursalActionPerformed
+
+    private void txtCodigoSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoSucursalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoSucursalActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -495,6 +529,24 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new SistemaSeguridadPolicial().setVisible(true));
     }
+    
+    private void actualizarTablaVigilantes() {
+    // 1. Obtenemos el modelo de tu tabla
+    DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
+    
+    // 2. Limpiamos la tabla para no duplicar datos cada vez que actualizamos
+    modelo.setRowCount(0);
+    
+    // 3. Recorremos la lista de vigilantes que está en tu controlador
+    for (Vigilante v : controller.getVigilantes()) {
+        // 4. Agregamos una fila por cada vigilante
+        // Nota: Asegúrate de que tu clase Vigilante tenga los métodos getCodigo() y getEdad()
+        modelo.addRow(new Object[]{
+            v.getCodigo(),
+            v.getEdad()
+        });
+    }
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnContratarVigilante;
@@ -525,7 +577,9 @@ public class SistemaSeguridadPolicial extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextArea txtAreaReporte;
     private javax.swing.JTextField txtCodigoBanco;
     private javax.swing.JTextField txtCodigoSucursal;
