@@ -23,7 +23,7 @@ public class Participacion {
     }
 
     public ComisarioRol getRol() {
-        return rol;
+        return this.rol;
     }    
     
 }

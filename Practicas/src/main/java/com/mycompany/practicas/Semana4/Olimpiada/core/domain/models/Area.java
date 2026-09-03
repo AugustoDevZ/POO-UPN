@@ -32,6 +32,6 @@ public class Area {
     
     @Override
     public String toString() {
-        return idArea + localizacion; 
+        return this.localizacion; 
     }
 }

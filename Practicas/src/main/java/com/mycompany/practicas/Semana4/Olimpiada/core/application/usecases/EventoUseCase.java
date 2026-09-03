@@ -53,14 +53,22 @@ public class EventoUseCase {
         }
         eventos.add(nuevoEvento);
     }
-    public static void addComplejo(Complejo nuevoComplejo){      
-        if (complejos.contains(nuevoComplejo)) {
+    public static void addComplejo(Complejo nuevoComplejo){    
+        boolean existe = complejos.stream()
+                          .anyMatch(complejo -> complejo.getLocalizacion().
+                                  equals( nuevoComplejo.getLocalizacion()));
+        if (existe) {
             return;
         }
        complejos.add(nuevoComplejo);
     }    
     public static void addArea(Area nuevaArea){
-        if (areas.contains(nuevaArea)) {
+        
+        boolean existe = areas.stream()
+                          .anyMatch(area -> area.getLocalizacion().
+                                  equals(nuevaArea.getLocalizacion()));
+    
+        if (existe) {
             return;
         }
         areas.add(nuevaArea);

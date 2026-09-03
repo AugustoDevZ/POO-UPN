@@ -13,7 +13,7 @@ import com.mycompany.practicas.Semana4.Olimpiada.core.domain.models.Sede;
 import com.mycompany.practicas.Semana4.Olimpiada.core.domain.enums.ComisarioRol;
 import com.mycompany.practicas.Semana4.Olimpiada.core.domain.models.Comisario;
 import com.mycompany.practicas.Semana4.Olimpiada.presentation.controller.EventoController;
-import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import com.mycompany.practicas.Semana4.Olimpiada.infrastructure.id.UUIDGenerator;
 import javax.swing.JOptionPane;
 import com.mycompany.practicas.Semana4.Olimpiada.core.application.usecases.IdGeneradorUseCase;
@@ -31,6 +31,7 @@ public class Olimpiada extends javax.swing.JFrame {
     private List<Evento> tempEventos = new ArrayList();
     private List<Area> tempAreas = new ArrayList();
     private List<Complejo> tempComplejos = new ArrayList();
+    private List<Comisario> comisariosSeleccionados = new ArrayList();
     /**
      * Creates new form Olimpiada
      */
@@ -51,21 +52,7 @@ public class Olimpiada extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lstVista = new java.awt.List();
-        btnVisualizar = new javax.swing.JButton();
-        cbxMostrar = new javax.swing.JComboBox<>();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        label1 = new java.awt.Label();
-        txtNombreSede = new javax.swing.JTextField();
-        label2 = new java.awt.Label();
-        label3 = new java.awt.Label();
-        cbxListComplejosSede = new javax.swing.JComboBox<>();
-        btnAddSede = new javax.swing.JButton();
-        lstComplejosSede = new java.awt.List();
-        label4 = new java.awt.Label();
-        txtPresupuestoSede = new javax.swing.JTextField();
-        btnCrearSede = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         btnCrearArea = new javax.swing.JButton();
         label12 = new java.awt.Label();
@@ -115,103 +102,21 @@ public class Olimpiada extends javax.swing.JFrame {
         btnAddEventoComplejo = new javax.swing.JButton();
         lstEventosComplejo = new java.awt.List();
         label18 = new java.awt.Label();
+        jPanel1 = new javax.swing.JPanel();
+        label1 = new java.awt.Label();
+        txtNombreSede = new javax.swing.JTextField();
+        label2 = new java.awt.Label();
+        label3 = new java.awt.Label();
+        cbxListComplejosSede = new javax.swing.JComboBox<>();
+        btnAddSede = new javax.swing.JButton();
+        lstComplejosSede = new java.awt.List();
+        label4 = new java.awt.Label();
+        txtPresupuestoSede = new javax.swing.JTextField();
+        btnCrearSede = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnVisualizar.setText("Recargar Lista");
-        btnVisualizar.addActionListener(this::btnVisualizarActionPerformed);
-
-        cbxMostrar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mostrar Sedes", "Mostrar Areas", "Mostrar Comisarios", "Mostrar Eventos", "Mostarr Complejos" }));
-
         jTabbedPane1.addChangeListener(this::jTabbedPane1StateChanged);
-
-        label1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        label1.setText("Crea sede");
-
-        txtNombreSede.setText("EjemploSede");
-
-        label2.setText("Ingresa el presupuesto");
-
-        label3.setText("Asigna complejos a la sede:");
-
-        btnAddSede.setText("+");
-        btnAddSede.addActionListener(this::btnAddSedeActionPerformed);
-
-        label4.setText("Ingrea el nombre de la sede a crear:");
-
-        txtPresupuestoSede.setText("EjemploSede");
-
-        btnCrearSede.setText("Crear Sede");
-        btnCrearSede.setActionCommand("");
-        btnCrearSede.addActionListener(this::btnCrearSedeActionPerformed);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombreSede, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPresupuestoSede, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label3, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnCrearSede, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lstComplejosSede, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(cbxListComplejosSede, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnAddSede, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(20, 20, 20)
-                    .addComponent(label4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(263, 263, 263)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbxListComplejosSede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtNombreSede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnAddSede)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 26, Short.MAX_VALUE)
-                        .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPresupuestoSede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lstComplejosSede, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(40, 40, 40)
-                .addComponent(btnCrearSede)
-                .addGap(188, 188, 188))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(54, 54, 54)
-                    .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(362, Short.MAX_VALUE)))
-        );
-
-        jTabbedPane1.addTab(" Sedes", jPanel1);
 
         btnCrearArea.setText("Crear Área");
         btnCrearArea.addActionListener(this::btnCrearAreaActionPerformed);
@@ -372,36 +277,43 @@ public class Olimpiada extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(caInicioEvento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(caFinalEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(caInicioEvento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(label21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(label23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(label22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(caFinalEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(label26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNumParticipantes, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(cbxRolComisario, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnAddComisarioS, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(label25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtNumParticipantes, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(label24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cbxEventoComsiarios, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(label26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(186, 186, 186)
-                            .addComponent(btnAddEventoComisarios, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnCrearEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lstComisariosSeleccionados, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                .addComponent(lstComisariosSeleccionados, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(366, 366, 366))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbxRolComisario, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(cbxEventoComsiarios, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnAddComisarioS, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(367, 367, 367)))
+                        .addComponent(btnAddEventoComisarios, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(btnCrearEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(23, 23, 23))
         );
         jPanel5Layout.setVerticalGroup(
@@ -414,8 +326,7 @@ public class Olimpiada extends javax.swing.JFrame {
                     .addComponent(label22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(caInicioEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(txtNumParticipantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -426,21 +337,21 @@ public class Olimpiada extends javax.swing.JFrame {
                                 .addComponent(btnAddEventoComisarios))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbxEventoComsiarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cbxEventoComsiarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnAddComisarioS))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(label26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(8, 8, 8)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbxRolComisario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddComisarioS))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(lstComisariosSeleccionados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(22, 22, 22)
+                                .addComponent(lstComisariosSeleccionados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(label26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(cbxRolComisario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                         .addComponent(btnCrearEvento)
                         .addGap(79, 79, 79))
                     .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(caInicioEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(label23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(caFinalEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -573,35 +484,109 @@ public class Olimpiada extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Complejo", jPanel2);
 
+        label1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        label1.setText("Crea sede");
+
+        txtNombreSede.setText("EjemploSede");
+
+        label2.setText("Ingresa el presupuesto");
+
+        label3.setText("Asigna complejos a la sede:");
+
+        btnAddSede.setText("+");
+        btnAddSede.addActionListener(this::btnAddSedeActionPerformed);
+
+        label4.setText("Ingrea el nombre de la sede a crear:");
+
+        txtPresupuestoSede.setText("EjemploSede");
+
+        btnCrearSede.setText("Crear Sede");
+        btnCrearSede.setActionCommand("");
+        btnCrearSede.addActionListener(this::btnCrearSedeActionPerformed);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombreSede, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPresupuestoSede, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(label3, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnCrearSede, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(lstComplejosSede, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(cbxListComplejosSede, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btnAddSede, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(20, 20, 20)
+                    .addComponent(label4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(263, 263, 263)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbxListComplejosSede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtNombreSede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAddSede)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 26, Short.MAX_VALUE)
+                        .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPresupuestoSede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lstComplejosSede, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(btnCrearSede)
+                .addGap(188, 188, 188))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(54, 54, 54)
+                    .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(362, Short.MAX_VALUE)))
+        );
+
+        jTabbedPane1.addTab(" Sedes", jPanel1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cbxMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lstVista, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap(15, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lstVista, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbxMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -628,6 +613,16 @@ public class Olimpiada extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(
                 null,
                 "El presupeusto ingresado no es válido",
+                "Error",
+                JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
+        
+        if (tempComplejos.isEmpty()) {
+            JOptionPane.showMessageDialog(
+                null,
+                "debes seleccionar uno o más complejos.",
                 "Error",
                 JOptionPane.ERROR_MESSAGE
             );
@@ -698,7 +693,7 @@ public class Olimpiada extends javax.swing.JFrame {
         }
         String uuid = this.UUIDGenerador.generar();
         EventoController.crearArea(new Area(uuid, desArea,locArea));
-        
+        JOptionPane.showMessageDialog(null, "Se creó el Área " + locArea);
     }//GEN-LAST:event_btnCrearAreaActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -729,6 +724,16 @@ public class Olimpiada extends javax.swing.JFrame {
         }
         
         String nParticipantes = txtNumParticipantes.getText();
+        if (nParticipantes.isBlank()) {
+            JOptionPane.showMessageDialog(
+                null,
+                "debe ingresar el núemro de participantes",
+                "Error",
+                JOptionPane.ERROR_MESSAGE
+            );
+            return; 
+        }
+        
         int numeroParticipantes = 0;
         try{
             numeroParticipantes = Integer.parseInt(nParticipantes);
@@ -742,6 +747,15 @@ public class Olimpiada extends javax.swing.JFrame {
             return; 
         }
         
+        if (tempComisarios.isEmpty()) {
+            JOptionPane.showMessageDialog(
+                null,
+                "debes seleccionar al menos un comisario.",
+                "Error",
+                JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
         
         Calendar calInicio = caInicioEvento.getCalendar(); 
         Calendar calFinal = caFinalEvento.getCalendar();
@@ -762,15 +776,16 @@ public class Olimpiada extends javax.swing.JFrame {
         
         long minutosTotales = diferencia.toMinutes(); 
         
-        List<Participacion> comisarios = tempComisarios;
          
         String idEvento = this.UUIDGenerador.generar();
         
-        Evento newEvento = new Evento(idEvento, inicio, fin, minutosTotales, numeroParticipantes, comisarios); //agregar aqui una referen
+        Evento newEvento = new Evento(idEvento, inicio, fin, minutosTotales, numeroParticipantes, tempComisarios); //agregar aqui una referen
         
+        EventoController.crearEvento(newEvento);
         lstComisariosSeleccionados.removeAll();
         tempComisarios.clear();
         txtNumParticipantes.setText("");
+        comisariosSeleccionados.clear();
         
         JOptionPane.showMessageDialog(
                 null,
@@ -778,6 +793,8 @@ public class Olimpiada extends javax.swing.JFrame {
                 "Evento creado",
                 JOptionPane.OK_OPTION
             );
+        
+        
     }//GEN-LAST:event_btnCrearEventoActionPerformed
 
     private void btnAddEventoComisariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEventoComisariosActionPerformed
@@ -800,11 +817,17 @@ public class Olimpiada extends javax.swing.JFrame {
         }
         
         Comisario seleccionado = (Comisario) cbxEventoComsiarios.getSelectedItem();
+        if (comisariosSeleccionados.contains(seleccionado)) {
+            
+            return;
+        }    
+        comisariosSeleccionados.add(seleccionado);
         ComisarioRol rol = (ComisarioRol) cbxRolComisario.getSelectedItem();
         Participacion comsiarioParticipante = new Participacion(seleccionado, rol);
         
-        tempComisarios.add(comsiarioParticipante);          
-        lstComisariosSeleccionados.add(seleccionado.getNombre());
+        tempComisarios.add(comsiarioParticipante);
+            lstComisariosSeleccionados.add(seleccionado.getNombre());
+        
     }//GEN-LAST:event_btnAddComisarioSActionPerformed
 
     private void txtNombreComplejoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreComplejoActionPerformed
@@ -830,8 +853,18 @@ public class Olimpiada extends javax.swing.JFrame {
             return;
         }
         String uuid = this.UUIDGenerador.generar();
-        //tempEventos
-        //tempAreas
+       
+        if (tempAreas.isEmpty() || tempEventos.isEmpty()) {
+            JOptionPane.showMessageDialog(
+                null,
+                "debes seleccionar al menos un área o evento.",
+                "Error",
+                JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
+        
+        
         Complejo newComplejo = new Complejo(uuid, localizacionComplejo, jefeIndividual,
                 tempAreas, tempEventos);
         
@@ -844,11 +877,11 @@ public class Olimpiada extends javax.swing.JFrame {
 
     private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
         
-        List<Evento> tempEventos = EventoController.getEventos().getItems();
+        List<Evento> tempEvento = EventoController.getEventos().getItems();
         
         cbxEventosComplejo.removeAllItems();
         
-        for (Evento evn : tempEventos) {
+        for (Evento evn : tempEvento) {
             cbxEventosComplejo.addItem(evn);
         }
         
@@ -860,13 +893,15 @@ public class Olimpiada extends javax.swing.JFrame {
             cbxAreasComplejo.addItem(ar);
         }
         
-        List<Complejo> tempComplejos = EventoController.getComplejos().getItems();
+        List<Complejo> tempComplej = EventoController.getComplejos().getItems();
         
         cbxListComplejosSede.removeAllItems();
         
-        for (Complejo c : tempComplejos) {
+        for (Complejo c : tempComplej) {
             cbxListComplejosSede.addItem(c);
         }
+        
+        
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
     private void btnAddEventoComplejoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEventoComplejoActionPerformed
@@ -881,9 +916,10 @@ public class Olimpiada extends javax.swing.JFrame {
         }
         
         Evento evn = (Evento) cbxEventosComplejo.getSelectedItem();
-        tempEventos.add(evn);
-        
-        lstEventosComplejo.add(evn.toString());
+        if (!tempEventos.contains(evn)) {
+            tempEventos.add(evn);
+            lstEventosComplejo.add(evn.toString());
+        }
     }//GEN-LAST:event_btnAddEventoComplejoActionPerformed
 
     private void btnAreasComplejoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAreasComplejoActionPerformed
@@ -897,46 +933,11 @@ public class Olimpiada extends javax.swing.JFrame {
             return;
         }
         Area area = (Area)cbxAreasComplejo.getSelectedItem();
-        tempAreas.add(area);
-        lstAreasSeleccionadasComplejo.add(area.toString());
+        if (!tempAreas.contains(area)) {
+            tempAreas.add(area);
+            lstAreasSeleccionadasComplejo.add(area.toString());
+        }
     }//GEN-LAST:event_btnAreasComplejoActionPerformed
-
-    private void btnVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarActionPerformed
-        if (cbxMostrar.getSelectedIndex() == -1) {
-            JOptionPane.showMessageDialog(
-                null,
-                "Debes seleccionar una opción para poder visualizar",
-                "Error",
-                JOptionPane.ERROR_MESSAGE
-            );
-            return;
-        }
-        
-        List<?> datosParaMostrar = null;
-        
-        switch(cbxMostrar.getSelectedIndex()){
-            case 1:
-                datosParaMostrar = EventoController.getSedes().getItems();
-                break;
-            case 2:
-                datosParaMostrar = EventoController.getAreas().getItems();
-                break;
-            case 3:
-                datosParaMostrar = EventoController.getComisarios().getItems();
-                break;
-            case 4:
-                datosParaMostrar = EventoController.getEventos().getItems();
-                break;
-            case 5:
-                datosParaMostrar = EventoController.getComplejos().getItems();
-                break;    
-        }
-     
-        lstVista.removeAll();
-        for (Object ar : datosParaMostrar) {
-            lstVista.add(ar + "");
-        }
-    }//GEN-LAST:event_btnVisualizarActionPerformed
     
     private void reloadCbxComisarios(){
         
@@ -992,7 +993,6 @@ public class Olimpiada extends javax.swing.JFrame {
     private javax.swing.JButton btnCrearEvento;
     private javax.swing.JButton btnCrearSede;
     private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnVisualizar;
     private com.toedter.calendar.JCalendar caFinalEvento;
     private com.toedter.calendar.JCalendar caInicioEvento;
     private javax.swing.JComboBox<com.mycompany.practicas.Semana4.Olimpiada.core.domain.models.Area> cbxAreasComplejo;
@@ -1000,7 +1000,6 @@ public class Olimpiada extends javax.swing.JFrame {
     private javax.swing.JComboBox<com.mycompany.practicas.Semana4.Olimpiada.core.domain.models.Comisario> cbxEventoComsiarios;
     private javax.swing.JComboBox<com.mycompany.practicas.Semana4.Olimpiada.core.domain.models.Evento> cbxEventosComplejo;
     private javax.swing.JComboBox<com.mycompany.practicas.Semana4.Olimpiada.core.domain.models.Complejo> cbxListComplejosSede;
-    private javax.swing.JComboBox<String> cbxMostrar;
     private javax.swing.JComboBox<com.mycompany.practicas.Semana4.Olimpiada.core.domain.enums.ComisarioRol> cbxRolComisario;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -1035,7 +1034,6 @@ public class Olimpiada extends javax.swing.JFrame {
     private java.awt.List lstComisariosSeleccionados;
     private java.awt.List lstComplejosSede;
     private java.awt.List lstEventosComplejo;
-    private java.awt.List lstVista;
     private javax.swing.JTextField txtDescripcionArea;
     private javax.swing.JTextField txtJefeIndividual;
     private javax.swing.JTextField txtLocalizacionArea;
